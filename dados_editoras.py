@@ -16,3 +16,5 @@ conn.executemany("INSERT INTO editoras(nome) VALUES(?)",
 
 #confirmando a criação e os inserts da tabela editoras.
 conn.commit()
+
+#teste commit
