@@ -1,0 +1,1 @@
+# implemente a aplicação com menu de opções de cadastro e listagem para cada tabela do modelo.
