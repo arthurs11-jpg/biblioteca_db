@@ -11,8 +11,24 @@ conn.execute("CREATE TABLE usuarios (id INTEGER PRIMARY KEY AUTOINCREMENT \
              , nome TEXT NOT NULL)")
 
 #inserindo os registros na tabela usuarios
-conn.executemany("INSERT INTO usuarios(nome) VALUES(?)",
-                 [("Arthur",), ("Bruna",), ("Lauryen",)])
 
-#confirmando a criação e os inserts da tabela usuarios.
-conn.commit()
+
+conn = sqlite3.connect("biblioteca.db")
+conn.row_factory = sqlite3.Row
+
+#cria um cursor (objeto para interagir com o banco)
+cursor = conn.cursor()
+
+#executa o sql
+cursor.execute("SELECT * FROM usuarios")
+
+#pega os registros e guarda na variável resultados
+resultados = cursor.fetchall()
+
+#percorre os registros que retornaram
+for linha in resultados:
+    print(f"id: {linha['id']} | nome: {linha['nome']}")
+    #print(f"id: {linha[0]} | nome: {linha[1]}")
+
+#fecha a conexão
+conn.close()
