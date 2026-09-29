@@ -1,2 +1,2 @@
-import sqlite
+import sqlite3 as sqlite
 #oieee
